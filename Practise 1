@@ -65,8 +65,32 @@ from customer c
 INNER JOIN email_address ea ON c.customer_id = ea.customer_id;
 
 use customers;
---
+-- joins two tables 
 SELECT *
 from customer c
 INNER JOIN email_address ea ON c.customer_id = ea.customer_id;
+
+
+-- experimenting so i can see changes later
+select * from customers.email_address; 
+UPDATE customers.email_address
+SET 
+email_address = 'null'
+WHERE 
+customer_id = 3;
+
+-- EXPERIMENTING with left outer join
+use customers;
+SELECT 
+*
+from customer c
+LEFT OUTER JOIN email_address ea 
+ON c.customer_id = ea.customer_id;
+
+-- cross join where all values are cross joined together in cartesian product A X B
+USE joins_practice;
+SELECT 
+t1.*, t2.*
+from table1_fruit_basket t1
+CROSS JOIN table2_fruit_basket t2;
 
