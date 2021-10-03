@@ -1,0 +1,25 @@
+use joins_practice;
+
+select * from table1_fruit_basket;
+
+select * from table2_fruit_basket;
+
+
+-- creates a table joining rows from both individual tables where values match
+SELECT *
+from table1_fruit_basket t1
+INNER JOIN table2_fruit_basket t2 ON t1.ID = t2.ID;
+
+-- creates a table joining rows from both individual tables where values match, experimenting
+SELECT *
+from table1_fruit_basket t1
+INNER JOIN table2_fruit_basket t2 ON (t1.ID = t2.ID and t1.fruit = t2.fruit);
+
+-- inner join but naming the columns
+SELECT 
+t1.ID as T1ID,
+t2.ID as T2ID,
+t1.Fruit as T1Fruit,
+t2.Fruit as T2Fruit
+from table1_fruit_basket t1
+INNER JOIN table2_fruit_basket t2 ON t1.ID = t2.ID;
