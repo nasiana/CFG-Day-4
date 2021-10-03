@@ -23,3 +23,12 @@ t1.Fruit as T1Fruit,
 t2.Fruit as T2Fruit
 from table1_fruit_basket t1
 INNER JOIN table2_fruit_basket t2 ON t1.ID = t2.ID;
+
+-- left outer join which retrieves the matching rows as well all the other data from the left column
+SELECT 
+t1.ID as T1ID,
+t1.Fruit as T1Fruit,
+t2.ID as T2ID,
+t2.Fruit as T2Fruit
+from table1_fruit_basket t1
+LEFT JOIN table2_fruit_basket t2 ON t1.ID = t2.ID;
