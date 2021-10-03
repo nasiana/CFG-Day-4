@@ -42,3 +42,31 @@ t2.Fruit as T2Fruit
 from table1_fruit_basket t1
 RIGHT JOIN table2_fruit_basket t2 ON t1.ID = t2.ID;
 
+-- change column name
+ALTER TABLE customers.email_address
+RENAME COLUMN email_address_customer_id TO customer_id;
+
+select * from customers.customer;
+select * from customers.email_address;
+
+-- bulk inserting data into customers.email_address table
+INSERT INTO customers.email_address
+(email_address_id, customer_id, email_address)
+VALUES 
+(11, 1, 'ok@gmail.com'),
+(22, 2, 'mo@gmail.com'),
+(33, 3, 'yo@gmail.com');
+
+-- show first_name, last_name and email address
+use customers;
+SELECT 
+c.first_name, c.last_name, ea.email_address
+from customer c
+INNER JOIN email_address ea ON c.customer_id = ea.customer_id;
+
+use customers;
+--
+SELECT *
+from customer c
+INNER JOIN email_address ea ON c.customer_id = ea.customer_id;
+
