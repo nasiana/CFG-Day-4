@@ -1,0 +1,9 @@
+use shop;
+
+select * from sales1;
+
+select s.SalesPerson, s.SalesAmount
+from sales1 s
+-- 'group by 1' groups by the first column listed i.e. SalesPerson
+group by 1 
+order by s.SalesAmount;
