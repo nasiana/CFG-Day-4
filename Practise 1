@@ -94,3 +94,57 @@ t1.*, t2.*
 from table1_fruit_basket t1
 CROSS JOIN table2_fruit_basket t2;
 
+CREATE TABLE employee (
+  EmployeeID int(11) NOT NULL,
+  Name varchar(55),
+  ManagerID int(11),
+  PRIMARY KEY (EmployeeID)
+);
+
+--
+USE joins_practice;
+-- Insert Sample Data
+CREATE TABLE employee (
+  EmployeeID int(11) NOT NULL,
+  Name varchar(55),
+  ManagerID int(11),
+  PRIMARY KEY (EmployeeID)
+);
+
+-- Insert Sample Data
+INSERT INTO Employee
+VALUES
+(1, 'Annie', 3),
+(2, 'David', 3),
+(3, 'Eliazabeth', NULL),
+(4, 'Mary',2),
+(5, 'Roger',2),
+(7, 'Ben', 2);
+
+select * from employee;
+-- self join where you reference the same table with two different aliases, match manager to employee. Using inner join.
+select e1.Name as EmployeeName, e2.Name as ManagerName
+from employee e1
+inner join employee e2
+on e1.ManagerId = e2.EmployeeId;
+
+select * from employee;
+-- self join where you reference the same table with two different aliases, select all
+select *
+from employee e1
+inner join employee e2
+on e1.ManagerId = e2.EmployeeId;
+
+-- self join where you reference the same table with two different aliases, match manager to employee. This time with left join.
+select e1.Name as EmployeeName, e2.Name as ManagerName
+from employee e1
+left join employee e2
+on e1.ManagerId = e2.EmployeeId;
+
+-- self join where you reference the same table with two different aliases, match manager to employee. This time with left join.
+-- if the e2.name value is Null then the Null is replaced with 'Top Dog' as they are clearly the boss if they have no boss
+select e1.Name as EmployeeName, IFNULL(e2.Name, 'Top Dog') as ManagerName
+from employee e1
+left join employee e2
+on e1.ManagerId = e2.EmployeeId;
+
