@@ -90,6 +90,10 @@ ON c.customer_id = ea.customer_id;
 -- cross join where all values are cross joined together in cartesian product A X B
 USE joins_practice;
 SELECT 
+-- It selects all the columns from t1 and all columns from t2. In this example, it is equivalent to select * . 
+-- But the syntax can be useful because you may want to, for example, just select all the columns from table 2 but a single column from t1,
+-- in which case you could do something like just select t1. fruit, t2.* , or you may want to reorder the columns and select t2 before t1,
+-- i.e. select t2.*, t1.* , etc.
 t1.*, t2.*
 from table1_fruit_basket t1
 CROSS JOIN table2_fruit_basket t2;
