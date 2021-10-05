@@ -44,3 +44,12 @@ where sp.S_ID IN(
 SELECT sy.S_ID 
 from supply sy
 where sy.J_ID = 'J2');
+
+-- shows all the projects which have only London based supplier
+SELECT DISTINCT pj.jname as 'Name_of_Project', pj.city as 'City_of_Project'
+from project pj
+INNER JOIN supply sy ON pj.j_ID = sy.j_ID
+where 
+sy.S_ID NOT IN (select sp.S_ID
+from supplier sp
+where City != 'London');
