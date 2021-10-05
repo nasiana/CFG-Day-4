@@ -8,3 +8,15 @@ where t1.Fruit IN ('pear', 'apple');
 
 -- switching to customers database
 use customers;
+
+-- adding some data to match Hassan
+INSERT INTO customer 
+(customer_id, first_name, last_name) 
+VALUES 
+(3, 'Jon', 'Smith');
+
+select * from customers.customer;
+select * from phone_number;
+
+select c.first_name, c.last_name 
+from customer c;
