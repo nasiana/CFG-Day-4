@@ -19,4 +19,16 @@ select * from customers.customer;
 select * from phone_number;
 
 select c.first_name, c.last_name 
-from customer c;
+from customer c
+where c.customer_ID in(
+                       select customer_ID
+                       from phone_number ph
+                       where ph.phone_number = '555-3344'
+);
+
+-- 
+select ph.customer_ID
+from phone_number ph
+-- phone number begins with 5
+where ph.phone_number LIKE '5%';
+-- 
