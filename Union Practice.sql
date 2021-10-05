@@ -1,4 +1,5 @@
 use joins_practice;
+
 -- gives us everything from fruit basket 1
 select t1.ID as T1ID, t1.Fruit as T1Fruit
 FROM table1_fruit_basket t1;
