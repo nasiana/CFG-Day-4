@@ -22,7 +22,7 @@ select c.first_name, c.last_name
 from customer c
 where c.customer_ID in(
                        select customer_ID
-                       from phone_number ph
+                       from phone_number ph  
                        where ph.phone_number = '555-3344'
 );
 
@@ -32,3 +32,15 @@ from phone_number ph
 -- phone number begins with 5
 where ph.phone_number LIKE '5%';
 -- 
+
+-- use parts
+USE parts;
+
+-- PRACTICE 
+-- Find the name and status of each supplier who supplies project J2
+select sp.sname, sp.status
+from supplier sp
+where sp.S_ID IN(
+SELECT sy.S_ID 
+from supply sy
+where sy.J_ID = 'J2');
